@@ -33,7 +33,7 @@ public class Main {
                     System.out.println("Mostrar lista");
                     break;
                 case 5:
-                    System.out.printl
+                    System.out.println("Salir");
                 default:
                     System.out.println("Opción no válida");
                     break;
