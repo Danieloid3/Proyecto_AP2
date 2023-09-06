@@ -45,4 +45,25 @@ public class Lista
         JOptionPane.showMessageDialog(null, s);
     }
 
+    public void insertarFinal(int dato)
+    {
+        Nodo nuevo = new Nodo();
+        nuevo.setDato(dato);
+        if (punta == null)
+        {
+            punta = nuevo;
+        }
+        else
+        {
+            Nodo aux = punta;
+            while(aux.getLiga() != null)
+            {
+                aux = aux.getLiga();
+            }
+            nuevo =
+            aux.setLiga(nuevo);
+        }
+    }
+
+    // MARIANA HACE: Insertar ordenado, l1+l2 = l3
 }

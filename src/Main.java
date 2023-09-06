@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -10,25 +11,29 @@ public class Main {
         do
         {
             System.out.println("Menú");
-            System.out.println("1. Insertar al inicio");
-            System.out.println("2. Insertar al final");
-            System.out.println("3. Mostrar lista");
-            System.out.println("4. Salir");
+            System.out.println("1. Crear lista");
+            System.out.println("2. Insertar al inicio");
+            System.out.println("3. Insertar al final");
+            System.out.println("4. Mostrar lista");
+            System.out.println("5. Salir");
             opcion = scan.nextInt();
             switch (opcion)
             {
                 case 1:
-                    System.out.println("Insertar al inicio");
+                    System.out.println("Crear lista");
+                    Lista nuevaLista = new Lista();
                     break;
                 case 2:
-                    System.out.println("Insertar al final");
+                    System.out.println("Insertar al inicio");
                     break;
                 case 3:
-                    System.out.println("Mostrar lista");
+                    System.out.println("Insertar al final");
                     break;
                 case 4:
-                    System.out.println("Salir");
+                    System.out.println("Mostrar lista");
                     break;
+                case 5:
+                    System.out.printl
                 default:
                     System.out.println("Opción no válida");
                     break;
