@@ -11,10 +11,17 @@ public class Nodo {
         this.liga = liga;
     }
 
+    public Nodo(int dato){
+        this.dato = dato;
+        this.liga = null;
+    }
+
     public Nodo() {
         this.dato = 0;
         this.liga = null;
     }
+
+
 
     //Getters y Setters
     public int getDato() {
