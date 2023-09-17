@@ -7,7 +7,7 @@ import java.util.Scanner;
 
         public class Main {
             public static void main(String[] args) {
-                int opcion, dato;
+                int opcion, dato = 0;
                 Lista nuevaLista1 = new Lista();
                 Lista nuevaLista2 = new Lista();
                 Lista nuevaLista3 = new Lista();
@@ -112,30 +112,25 @@ import java.util.Scanner;
                             if (ListaReemplazar == 1) nuevaLista1.Reemplazar(dato, nuevoDato);
                             if (ListaReemplazar == 2) nuevaLista2.Reemplazar(dato, nuevoDato);
                         break;
+
                         case 9:
                             String Eliminar = "¿En qué lista desea eliminar?\n" +
                                     "1. Lista 1\n" +
                                     "2. Lista 2\n";
                             String op = JOptionPane.showInputDialog(null, Eliminar, "Menú de Opciones", JOptionPane.INFORMATION_MESSAGE);
                             int ListaEliminar = Integer.parseInt(op);
-                            String DatoEliminar = JOptionPane.showInputDialog("Ingrese el dato a reemplazar");
+                            String DatoEliminar = JOptionPane.showInputDialog("Ingrese dato a eliminar");
                             dato = Integer.parseInt(DatoEliminar);
-                           // if (ListaEliminar == 1) nuevaLista1.Eliminar(dato);
-                            //if (ListaEliminar == 2) nuevaLista2.Eliminar(dato);
+                            if (ListaEliminar == 1) nuevaLista1.Eliminar(dato);
+                            if (ListaEliminar == 2) nuevaLista2.Eliminar(dato);
+                        break;
+
+                        case 10:
+                            nuevaLista3.Distribuir(nuevaLista1,nuevaLista2);
+                            nuevaLista3.mostrarLista();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+                        break;
                         case 12:
                            JOptionPane.showMessageDialog(null, "Salir");
                            break;

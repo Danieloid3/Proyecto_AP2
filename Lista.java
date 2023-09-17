@@ -1,3 +1,4 @@
+import javax.print.attribute.standard.NumberOfDocuments;
 import javax.swing.JOptionPane;
 public class Lista {
     //Atributos
@@ -10,16 +11,12 @@ public class Lista {
     }
 
     //Insertar al inicio
-    public void insertarInicio(int dato)
-    {
+    public void insertarInicio(int dato) {
         Nodo nuevo = new Nodo();
         nuevo.setDato(dato);
-        if (this.punta == null)
-        {
+        if (this.punta == null) {
             this.punta = nuevo;
-        }
-        else
-        {
+        } else {
             nuevo.setLigaD(this.punta);
             punta.setLigaI(nuevo);
             punta = nuevo;
@@ -58,35 +55,29 @@ public class Lista {
         }
     }
 
-    public void insertarOrdenado(int dato)
-    {
-        if(this.punta == null) return;
+    public void insertarOrdenado(int dato) {
+        if (this.punta == null) return;
         Nodo P = this.punta;
         Nodo Q = P;
 
-        while(dato > P.getDato() && P != null){
+        while (dato > P.getDato() && P != null) {
             Q = P;
             P = P.getLigaD();
         }
         Nodo x = new Nodo(dato);
-        if(P!=Q) Q.setLigaD(x);
+        if (P != Q) Q.setLigaD(x);
         x.setLigaD(P);
-        if(P==Q) this.punta = x;
+        if (P == Q) this.punta = x;
     }
 
-    public void insertarFinal(int dato)
-    {
+    public void insertarFinal(int dato) {
 
-        if (punta == null)
-        {
+        if (punta == null) {
             Nodo nuevo = new Nodo(dato);
             punta = nuevo;
-        }
-        else
-        {
+        } else {
             Nodo aux = punta;
-            while(aux.getLigaD() != null)
-            {
+            while (aux.getLigaD() != null) {
                 aux = aux.getLigaD();
             }
             Nodo nuevo = new Nodo(dato);
@@ -112,61 +103,118 @@ public class Lista {
 
     public void Reemplazar(int dato, int nuevoDato) {
         Nodo aux = new Nodo();
-        aux=punta;
+        aux = punta;
         while (aux != null) {
             if (aux.getDato() == dato) {
                 aux.setDato(nuevoDato);
-            }else{
+            } else {
                 aux = aux.getLigaD();
             }
         }
     }
 
-   /* public void Busqueda(int dato) {
-    Nodo aux= new Nodo();
-    int i = 0;
-    aux=punta;
-    while(aux!=null || aux.getDato()!=dato){
-            if(aux.getDato()==dato){
-                JOptionPane.showMessageDialog(null, "El dato "+ dato+ " se encuentra en la posicion "+ i+1);
-                aux=null;;
+    public void Busqueda(int Dato) {
+        Nodo aux = punta;
+        int i = 0;
+        while (aux != null) {
+            if (aux.getDato() == Dato) {
+                JOptionPane.showMessageDialog(null, "El dato " + Dato + " se encuentra en la posicion " + i);
             }
-        }
-        aux=aux.getLigaD();
-        i++;
-    }*/
-    public void Busqueda (int Dato)
-    {
-        Nodo p = punta;
-        int i=0;
-        while (p != null || p.getDato() != Dato)
-        {
-            if (p.getDato()==Dato)
-            {
-                System.out.println("El dato "+Dato+" se encuentra en la posicion "+i);
-                JOptionPane .showMessageDialog(null, "El dato "+Dato+" se encuentra en la posicion "+i);
-                p = null;
-            }
-            p= p.getLigaD();
+            aux = aux.getLigaD();
             i++;
 
         }
     }
 
+    /*public void Buscar (int Dato){
+        Nodo aux = punta;
+        int i=0;
+        while (aux != null || aux.getDato()!= Dato) {
+            if (aux.getDato()==Dato) {
+                JOptionPane .showMessageDialog(null, "El dato "+Dato+" se encuentra en la posicion "+i+1);
+            aux=null;
+            }
+            aux= aux.getLigaD();
+            i++;
 
-   /* public void Eliminar (int dato){
-        Nodo aux=punta;
-        while(aux!=null){
-            if(aux.getDato()==dato){
+        }
+    }*/
+    public void Eliminar(int dato) {
+        Nodo aux = punta;
+        boolean encontrado=false;
+        while(aux!=null && !encontrado){
+            encontrado = (aux.getDato()==dato);
+            if(!encontrado){
+                aux=aux.getLigaD();
 
             }
         }
-    }*/
+        if(encontrado){
+            if(aux==punta){
+                punta=aux.getLigaD();
+            }else{
+                aux.getLigaI().setLigaD(aux.getLigaD());
+                if(aux.getLigaD()!=null){
+                    aux.getLigaD().setLigaI(aux.getLigaI());
+                }
+            }
+            aux=null;
+        }
+
+    }
+
+    public void Distribuir(Lista A, Lista B) {
+        Nodo P = A.punta;
+        Nodo Q = B.punta;
+
+        while (Q != null) {
+            int acumulador = 0; // Reiniciar el acumulador para cada elemento de B
+
+            while (P != null) {
+                acumulador = acumulador + P.getDato();
+                P = P.getLigaD();
+            }
+
+            int d = Q.getDato() * acumulador;
+            insertarFinal(d);
+
+            Q = Q.getLigaD();
+            P = A.punta;
+        }
+    }
 
 
+   /* public void Distribuir(Lista A, Lista B) {
+        Nodo P = A.punta;
+
+        while (P != null) {
+            Nodo Q = B.punta;
+
+            while (Q != null) {
+                int datoA = P.getDato();
+                int datoB = Q.getDato();
+                int producto = datoA * datoB;
+                insertarFinal(producto);
+                Q = Q.getLigaD();
+            }
+
+            P = P.getLigaD();
+        }
+    }
+
+*/
 
 
 
 }
+
+
+
+
+
+
+
+
+
 
 
