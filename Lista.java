@@ -126,19 +126,7 @@ public class Lista {
         }
     }
 
-    /*public void Buscar (int Dato){
-        Nodo aux = punta;
-        int i=0;
-        while (aux != null || aux.getDato()!= Dato) {
-            if (aux.getDato()==Dato) {
-                JOptionPane .showMessageDialog(null, "El dato "+Dato+" se encuentra en la posicion "+i+1);
-            aux=null;
-            }
-            aux= aux.getLigaD();
-            i++;
-
-        }
-    }*/
+   
     public void Eliminar(int dato) {
         Nodo aux = punta;
         boolean encontrado=false;
