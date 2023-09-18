@@ -83,6 +83,7 @@ import java.util.Scanner;
                             if (insertarOrde == 2) nuevaLista2.insertarOrdenado(dato);
                             break;
                         case 6:
+                            nuevaLista3 = new Lista();
                             JOptionPane.showMessageDialog(null, "La suma de listas es: ");
                             nuevaLista3.sumarListas(nuevaLista1, nuevaLista2);
                             nuevaLista3.mostrarLista();
@@ -126,7 +127,8 @@ import java.util.Scanner;
                         break;
 
                         case 10:
-                            nuevaLista3.Distribuir(nuevaLista1,nuevaLista2);
+                            nuevaLista3 = new Lista();
+                           nuevaLista3.Distribuir(nuevaLista1,nuevaLista2);
                             nuevaLista3.mostrarLista();
 
 
