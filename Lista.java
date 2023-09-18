@@ -154,9 +154,8 @@ public class Lista {
     public void Distribuir(Lista A, Lista B) {
         Nodo P = A.punta;
         Nodo Q = B.punta;
-
+        int acumulador = 0;
         while (Q != null) {
-            int acumulador = 0; // Reiniciar el acumulador para cada elemento de B
 
             while (P != null) {
                 acumulador = acumulador + P.getDato();
@@ -167,7 +166,6 @@ public class Lista {
             insertarFinal(d);
 
             Q = Q.getLigaD();
-            P = A.punta;
         }
     }
 
