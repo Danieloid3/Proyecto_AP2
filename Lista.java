@@ -127,7 +127,7 @@ public class Lista {
     }
 
    
-    public void Eliminar(int dato) {
+   /* public void Eliminar(int dato) {
         Nodo aux = punta;
         boolean encontrado=false;
         while(aux!=null && !encontrado){
@@ -150,7 +150,22 @@ public class Lista {
         }
 
     }
-
+*/
+    public void Eliminar(int dato){
+        Nodo P=punta;
+        Nodo Q=P.getLigaD();
+        Nodo aux=new Nodo();
+        while(P!=null && Q!=null){
+            if(Q.getDato()==dato){
+                aux=Q;
+                Q=Q.getLigaD();
+                aux.getLigaD().setLigaI(aux.getLigaI());
+                aux.getLigaI().setLigaD(aux.getLigaD());
+            }else{
+                Q=Q.getLigaD();
+            }
+        }
+    }
     public void Distribuir(Lista A, Lista B) {
         Nodo P = A.punta;
         Nodo Q = B.punta;
