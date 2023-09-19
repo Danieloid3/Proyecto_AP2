@@ -115,7 +115,7 @@ public class Lista {
 
     public void Busqueda(int Dato) {
         Nodo aux = punta;
-        int i = 0;
+        int i = 1;
         while (aux != null) {
             if (aux.getDato() == Dato) {
                 JOptionPane.showMessageDialog(null, "El dato " + Dato + " se encuentra en la posicion " + i);
@@ -170,26 +170,36 @@ public class Lista {
     }
 
 
-   /* public void Distribuir(Lista A, Lista B) {
-        Nodo P = A.punta;
-
-        while (P != null) {
-            Nodo Q = B.punta;
-
-            while (Q != null) {
-                int datoA = P.getDato();
-                int datoB = Q.getDato();
-                int producto = datoA * datoB;
-                insertarFinal(producto);
+    public void intercalar (Lista L1, Lista L2)
+    {
+        Nodo P = L1.punta;
+        Nodo Q = L2.punta;
+        while (P != null || Q != null)
+        {
+            if (P != null && Q != null)
+            {
+                insertarFinal(P.getDato());
+                insertarFinal(Q.getDato());
+                P = P.getLigaD();
                 Q = Q.getLigaD();
             }
+            else
+            {
+                if (P == null)
+                {
+                    insertarFinal(Q.getDato());
+                    Q = Q.getLigaD();
+                }
+                else
+                {
+                    insertarFinal(P.getDato());
+                    P = P.getLigaD();
+                }
+            }
 
-            P = P.getLigaD();
         }
+
     }
-
-*/
-
 
 
 }

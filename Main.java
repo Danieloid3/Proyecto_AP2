@@ -128,10 +128,14 @@ import java.util.Scanner;
 
                         case 10:
                             nuevaLista3 = new Lista();
-                           nuevaLista3.Distribuir(nuevaLista1,nuevaLista2);
+                            nuevaLista3.Distribuir(nuevaLista1,nuevaLista2);
                             nuevaLista3.mostrarLista();
+                        break;
 
-
+                        case 11:
+                            nuevaLista3=new Lista();
+                            nuevaLista3.intercalar(nuevaLista1,nuevaLista2);
+                            nuevaLista3.mostrarLista();
                         break;
                         case 12:
                            JOptionPane.showMessageDialog(null, "Salir");
