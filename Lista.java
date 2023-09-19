@@ -126,31 +126,7 @@ public class Lista {
         }
     }
 
-   
-   /* public void Eliminar(int dato) {
-        Nodo aux = punta;
-        boolean encontrado=false;
-        while(aux!=null && !encontrado){
-            encontrado = (aux.getDato()==dato);
-            if(!encontrado){
-                aux=aux.getLigaD();
 
-            }
-        }
-        if(encontrado){
-            if(aux==punta){
-                punta=aux.getLigaD();
-            }else{
-                aux.getLigaI().setLigaD(aux.getLigaD());
-                if(aux.getLigaD()!=null){
-                    aux.getLigaD().setLigaI(aux.getLigaI());
-                }
-            }
-            aux=null;
-        }
-
-    }
-*/
     public void Eliminar(int dato){
         Nodo P=punta;
         Nodo Q=P.getLigaD();
